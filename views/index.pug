@@ -1,0 +1,232 @@
+doctype html
+head
+  meta(charset='utf-8')
+  meta(http-equiv='X-UA-Compatible', content='IE=edge')
+  // Tell the browser to be responsive to screen width
+  meta(name='viewport', content='width=device-width, initial-scale=1')
+  meta(name='description', content='')
+  meta(name='author', content='')
+  // Favicon icon
+  link(rel='icon', type='image/png', sizes='16x16', href='images/logo.png')
+  title Aditya News
+  // Bootstrap Core CSS
+  link(href='assets/plugins/bootstrap/css/bootstrap.min.css', rel='stylesheet')
+  // Custom CSS
+  link(href='css/style.css', rel='stylesheet')
+  // You can change the theme colors from here
+  link#theme(href='css/colors/blue.css', rel='stylesheet')
+  // HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries
+  // WARNING: Respond.js doesn't work if you view the page via file://
+  //if lt IE 9
+    script(src='https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js')
+    script(src='https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js')
+// ==============================================================
+// Preloader - style you can find in spinners.css
+// ==============================================================
+.preloader
+  svg.circular(viewbox='25 25 50 50')
+    circle.path(cx='50', cy='50', r='20', fill='none', stroke-width='2', stroke-miterlimit='10')
+// ==============================================================
+// Main wrapper - style you can find in pages.scss
+// ==============================================================
+#main-wrapper
+  // ==============================================================
+  // Topbar header - style you can find in pages.scss
+  // ==============================================================
+  header.topbar
+    nav.navbar.top-navbar.navbar-toggleable-sm.navbar-light
+      // ==============================================================
+      // Logo
+      // ==============================================================
+      .navbar-header
+        a.navbar-brand(href='/')
+          // Logo icon
+          b
+            // You can put here icon as well // <i class="wi wi-sunset"></i> //
+            // Dark Logo icon
+            img.dark-logo(src='http://portwashington-news.com/wp-content/uploads/2016/07/CollegeNews.png' width='110px;' height='50px;' alt='homepage')
+          // End Logo icon
+          // Logo text
+          span
+            // dark Logo text
+            //img.dark-logo(src=alt='homepage')
+      // ==============================================================
+      // End Logo
+      // ==============================================================
+      .navbar-collapse
+        // ==============================================================
+        // toggle and nav items
+        // ==============================================================
+        ul.navbar-nav.mr-auto.mt-md-0
+          // This is
+          li.nav-item
+            a.nav-link.nav-toggler.hidden-md-up.text-muted.waves-effect.waves-dark(href='javascript:void(0)')
+              i.ti-menu
+          
+        // ==============================================================
+        // User profile and search
+        // ==============================================================
+        ul.navbar-nav.my-lg-0
+          li.nav-item.dropdown
+            a.nav-link.dropdown-toggle.text-muted.waves-effect.waves-dark(href='', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
+             
+  // ==============================================================
+  // End Topbar header
+  // ==============================================================
+  // ==============================================================
+  // Left Sidebar - style you can find in sidebar.scss
+  // ==============================================================
+  aside.left-sidebar
+    // Sidebar scroll
+    .scroll-sidebar
+      // Sidebar navigation
+      nav.sidebar-nav
+        ul#sidebarnav
+          li
+            a.waves-effect(href='/')
+              i.fa.fa-clock-o.m-r-10(aria-hidden='true')
+              | HOME
+          li
+            a.waves-effect(href='/trainings')
+              i.fa.fa-cogs.m-r-10(aria-hidden='true')
+              | TRAININGS
+          li
+            a.waves-effect(href='/workshops')
+              i.fa.fa-table.m-r-10(aria-hidden='true')
+              | WORKSHOPS
+          li
+            a.waves-effect(href='/seminars')
+              i.fa.fa-user.m-r-10(aria-hidden='true')
+              | SEMINARS
+          li
+            a.waves-effect(href='/event')
+              i.fa.fa-camera-retro.m-r-10(aria-hidden='true')
+              | EVENTS
+          li
+            a.waves-effect(href='/placedcandidates')
+              i.fa.fa-users.m-r-10(aria-hidden='true')
+              | PLACED CANDIDATES
+          li
+            a.waves-effect(href='/cdrive')
+              i.fa.fa-paper-plane.m-r-10(aria-hidden='true')
+              | CAMPUS DRIVE
+          li
+            a.waves-effect(href='/exam')
+              i.fa.fa-bell.m-r-10(aria-hidden='true')
+              | EXAM UPDATES
+          li
+            a.waves-effect(href='/tech')
+              i.fa.fa-newspaper-o.m-r-10(aria-hidden='true')
+              | TECH NEWS
+          li
+            a.waves-effect(href='/articles')
+              i.fa.fa-pencil-square-o.m-r-10(aria-hidden='true')
+              | ARTICLES
+
+        .text-center.m-t-30
+          
+      // End Sidebar navigation
+    // End Sidebar scroll
+  // ==============================================================
+  // End Left Sidebar - style you can find in sidebar.scss
+  // ==============================================================
+  // ==============================================================
+  // Page wrapper
+  // ==============================================================
+  .page-wrapper
+    // ==============================================================
+    // Container fluid
+    // ==============================================================
+    .container-fluid
+      .row
+        .col-md-4
+          .dash-box.dash-box-color-1
+            .dash-box-icon
+              i.fa.fa-user(aria-hidden='true')
+            .dash-box-body
+              span.dash-box-count #{tcount}
+              span.dash-box-title Daily Users
+            .dash-box-action
+              button More Info
+        .col-md-4  
+          .dash-box.dash-box-color-2
+            .dash-box-icon
+              i.fa.fa-american-sign-language-interpreting
+            .dash-box-body
+              span.dash-box-count #{wcount}
+              span.dash-box-title Articles Applied
+            .dash-box-action
+              button More Info
+        .col-md-4
+          .dash-box.dash-box-color-3
+            .dash-box-icon
+              i.fa.fa-commenting
+            .dash-box-body
+              span.dash-box-count #{wcount}
+              span.dash-box-title Comments & Suggestions
+            .dash-box-action
+              button More Info
+      .row
+        .col-md-4
+          .dash-box.dash-box-color-4
+            .dash-box-icon
+              i.fa.fa-user(aria-hidden='true')
+            .dash-box-body
+              span.dash-box-count #{wcount}
+              span.dash-box-title Daily Users
+            .dash-box-action
+              button More Info
+        .col-md-4  
+          .dash-box.dash-box-color-5
+            .dash-box-icon
+              i.fa.fa-american-sign-language-interpreting
+            .dash-box-body
+              span.dash-box-count 100
+              span.dash-box-title Articles Applied
+            .dash-box-action
+              button More Info
+        .col-md-4
+          .dash-box.dash-box-color-6
+            .dash-box-icon
+              i.fa.fa-commenting
+            .dash-box-body
+              span.dash-box-count 2502
+              span.dash-box-title Comments & Suggestions
+            .dash-box-action
+              button More Info        
+
+    	
+
+   
+    // footer
+    // ==============================================================
+    footer.footer.text-center
+      | &copy; 2018 ADITYA NEWS
+   
+script(src='assets/plugins/jquery/jquery.min.js')
+// Bootstrap tether Core JavaScript
+script(src='assets/plugins/bootstrap/js/tether.min.js')
+script(src='assets/plugins/bootstrap/js/bootstrap.min.js')
+// slimscrollbar scrollbar JavaScript
+script(src='js/jquery.slimscroll.js')
+// Wave Effects
+script(src='js/waves.js')
+// Menu sidebar
+script(src='js/sidebarmenu.js')
+// stickey kit
+script(src='assets/plugins/sticky-kit-master/dist/sticky-kit.min.js')
+// Custom JavaScript
+script(src='js/custom.min.js')
+// ==============================================================
+// This page plugins
+// ==============================================================
+// Flot Charts JavaScript
+script(src='assets/plugins/flot/jquery.flot.js')
+script(src='assets/plugins/flot.tooltip/js/jquery.flot.tooltip.min.js')
+script(src='js/flot-data.js')
+// ==============================================================
+// Style switcher
+// ==============================================================
+script(src='assets/plugins/styleswitcher/jQuery.style.switcher.js')
+
+  

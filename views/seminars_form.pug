@@ -1,0 +1,391 @@
+doctype html
+head
+  meta(charset='utf-8')
+  meta(http-equiv='X-UA-Compatible', content='IE=edge')
+  // Tell the browser to be responsive to screen width
+  meta(name='viewport', content='width=device-width, initial-scale=1')
+  meta(name='description', content='')
+  meta(name='author', content='')
+  
+ 
+  // Favicon icon
+  link(rel='icon', type='image/png', sizes='16x16', href='assets/images/favicon.png')
+  title NEWS
+  // Bootstrap Core CSS
+  link(href='assets/plugins/bootstrap/css/bootstrap.min.css', rel='stylesheet')
+  // Custom CSS
+  link(href='css/style.css', rel='stylesheet')
+  // You can change the theme colors from here
+  link#theme(href='css/colors/blue.css', rel='stylesheet')
+  // HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries
+  // WARNING: Respond.js doesn't work if you view the page via file://
+  //if lt IE 9
+    script(src='https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js')
+    script(src='https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js')
+// ==============================================================
+// Preloader - style you can find in spinners.css
+// ==============================================================
+.preloader
+  svg.circular(viewbox='25 25 50 50')
+    circle.path(cx='50', cy='50', r='20', fill='none', stroke-width='2', stroke-miterlimit='10')
+// ==============================================================
+// Main wrapper - style you can find in pages.scss
+// ==============================================================
+#main-wrapper
+  // ==============================================================
+  // Topbar header - style you can find in pages.scss
+  // ==============================================================
+  header.topbar
+    nav.navbar.top-navbar.navbar-toggleable-sm.navbar-light
+      // ==============================================================
+      // Logo
+      // ==============================================================
+      .navbar-header
+        a.navbar-brand(href='index.html')
+          // Logo icon
+          b
+            // You can put here icon as well // <i class="wi wi-sunset"></i> //
+            // Dark Logo icon
+            img.dark-logo(src='http://portwashington-news.com/wp-content/uploads/2016/07/CollegeNews.png' width='110px;' height='50px;' alt='homepage')
+          // End Logo icon
+          // Logo text
+          span
+            // dark Logo text
+            //img.dark-logo(src=alt='homepage')
+      // ==============================================================
+      // End Logo
+      // ==============================================================
+      .navbar-collapse
+        // ==============================================================
+        // toggle and nav items
+        // ==============================================================
+        ul.navbar-nav.mr-auto.mt-md-0
+          // This is
+          li.nav-item
+            a.nav-link.nav-toggler.hidden-md-up.text-muted.waves-effect.waves-dark(href='javascript:void(0)')
+              i.ti-menu
+          li.nav-item.hidden-sm-down
+            form.app-search.p-l-20
+              input.form-control(type='text', placeholder='Search for...')
+              a.srh-btn
+                i.ti-search
+        // ==============================================================
+        // User profile and search
+        // ==============================================================
+        ul.navbar-nav.my-lg-0
+          li.nav-item.dropdown
+            a.nav-link.dropdown-toggle.text-muted.waves-effect.waves-dark(href='', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
+             
+  // ==============================================================
+  // End Topbar header
+  // ==============================================================
+  // ==============================================================
+  // Left Sidebar - style you can find in sidebar.scss
+  // ==============================================================
+  aside.left-sidebar
+    // Sidebar scroll
+    .scroll-sidebar
+      // Sidebar navigation
+      nav.sidebar-nav
+        ul#sidebarnav
+          li
+            a.waves-effect(href='/')
+              i.fa.fa-clock-o.m-r-10(aria-hidden='true')
+              | HOME
+          li
+            a.waves-effect(href='/trainings')
+              i.fa.fa-cogs.m-r-10(aria-hidden='true')
+              | TRAININGS
+          li
+            a.waves-effect(href='/workshops')
+              i.fa.fa-table.m-r-10(aria-hidden='true')
+              | WORKSHOPS
+          li
+            a.waves-effect(href='/seminars')
+              i.fa.fa-user.m-r-10(aria-hidden='true')
+              | SEMINARS
+          li
+            a.waves-effect(href='/event')
+              i.fa.fa-camera-retro.m-r-10(aria-hidden='true')
+              | EVENTS
+          li
+            a.waves-effect(href='/placedcandidates')
+              i.fa.fa-users.m-r-10(aria-hidden='true')
+              | PLACED CANDIDATES
+          li
+            a.waves-effect(href='/cdrive')
+              i.fa.fa-paper-plane.m-r-10(aria-hidden='true')
+              | CAMPUS DRIVE
+          li
+            a.waves-effect(href='/exam')
+              i.fa.fa-bell.m-r-10(aria-hidden='true')
+              | EXAM UPDATES
+          li
+            a.waves-effect(href='/tech')
+              i.fa.fa-newspaper-o.m-r-10(aria-hidden='true')
+              | TECH NEWS
+          li
+            a.waves-effect(href='/articles')
+              i.fa.fa-pencil-square-o.m-r-10(aria-hidden='true')
+              | ARTICLES
+          
+        .text-center.m-t-30
+          
+      // End Sidebar navigation
+    // End Sidebar scroll
+  // ==============================================================
+  // End Left Sidebar - style you can find in sidebar.scss
+  // ==============================================================
+  // ==============================================================
+  // Page wrapper
+  // ==============================================================
+  .page-wrapper
+    // ==============================================================
+    // Container fluid
+    // ==============================================================
+    .container-fluid
+      // ==============================================================
+      // Bread crumb and right sidebar toggle
+      // ==============================================================
+      .row.page-titles
+        .col-md-6.col-8.align-self-center
+          h3.text-themecolor.m-b-0.m-t-0 Seminars
+          
+         
+      // ==============================================================
+      // End Bread crumb and right sidebar toggle
+      // ==============================================================
+      // ==============================================================
+      // Start Page Content
+      // ==============================================================
+      // Row
+      //form
+      .container
+         .card
+            .card-block
+              
+              form(method='post', action='/add_seminar' , enctype='multipart/form-data')
+                .form-group.row
+                  .col-xs-6
+                    label(for='ex1') Topic
+                    input#ex1.form-control(name='topic', type='text')
+                    label(for='usr') Seminar By:
+                    input#usr.form-control(type='text', name='seminar_by')
+                    label(for='usr') Institution:
+                    input#usr.form-control(type='text', name='from')
+                    label(for='ex2') Date
+                    input#ex2.form-control(name='date', type='date')
+                    label(for='usr') Audience:
+                    input#usr.form-control(type='text', name='audience')
+                  
+              
+                  .col-xs-6
+                    label(for='sel1') Select College:
+                    select#sel1.form-control(name='college')
+                      option(value='', selected='') Select College
+                      option(value='Aditya Engineering College') Aditya Engineering College
+                      option(value='Aditya College of Engineering and Technology') Aditya College of Engineering and Technology
+                      option(value='Aditya College of Engineering') Aditya College of Engineering
+                      option(value='Aditya Polytechnic Colleges') Aditya Polytechnic Colleges
+                      option(value='Aditya Forensic College') Aditya Forensic College
+                      option(value='Aditya Pharmacy College') Aditya Pharmacy College
+                      option(value='Aditya Global Business School') Aditya Global Business School
+                    label(for='sel1') Select Block:
+                    select#sel1.form-control(name='bhavan')
+                      option(value='', selected='') Select College
+                      option(value='Abdul Kalam Bhavan') Abdul Kalam Bhavan
+                      option(value='Visweswarayya Bhavan') Visweswarayya Bhavan
+                      option(value='Cotton Bhavan') Cotton Bhavan
+                      option(value='K.L.Rao Bhavan') K.L.Rao Bhavan
+                      option(value='Bill Gates Bhavan') Bill Gates Bhavan
+                      option(value='C.V Raman Bhavan') C.V Raman Bhavan
+                      option(value='Newton Bhavan') Newton Bhavan
+                    label(for='sel1') Select Floor:
+                    select#sel1.form-control(name='floor')
+                      option(value='Ground Floor') Ground Floor
+                      option(value='1') 1
+                      option(value='2') 2
+                      option(value='3') 3
+                    label(for='pwd') Room No:
+                    input#usr.form-control(name='roomno', type='text')
+                .pull-right
+                  input.btn.btn-primary(type='submit' value='Add')
+                      
+             
+         .card
+            .card-block
+              h4.card-title SEMINARS
+              .table-responsive
+                table.table
+                  thead
+                    tr.w3-light-grey
+                      th.hide Id
+                      th Name
+                      th seminar by
+                      th from
+                      th date
+                      th audience
+                      th college
+                      th bhavan
+                      th floor 
+                      th roomno
+                      th Edit
+                      th Delete
+                  tbody
+                   if seminars
+                    each member in seminars
+                      tr
+                        td.hide #{member._id}
+                        td #{member.topic}
+                        td #{member.seminar_by}
+                        td #{member.from}
+                        td #{member.date}
+                        td #{member.audience}
+                        td #{member.college}
+                        td #{member.bhavan}
+                        td #{member.floor}
+                        td #{member.roomno} 
+                        td
+                          button.btn.btn-info.edit(data-toggle='modal', data-target='#myModal' value=member._id) Edit
+                        td
+                          button.btn.btn-danger.del(value=member._id) Remove
+
+    footer.footer.text-center
+      | &copy; 2018 ADITYA NEWS
+    // ==============================================================
+    // End footer
+    // ==============================================================
+  // ==============================================================
+  // End Page wrapper
+  // ==============================================================
+// ==============================================================
+// End Wrapper
+// ==============================================================
+// ==============================================================
+// All Jquery
+// ==============================================================
+script(src='assets/plugins/jquery/jquery.min.js')
+// Bootstrap tether Core JavaScript
+script(src='assets/plugins/bootstrap/js/tether.min.js')
+script(src='assets/plugins/bootstrap/js/bootstrap.min.js')
+// slimscrollbar scrollbar JavaScript
+script(src='js/jquery.slimscroll.js')
+// Wave Effects
+script(src='js/waves.js')
+// Menu sidebar
+script(src='js/sidebarmenu.js')
+// stickey kit
+script(src='assets/plugins/sticky-kit-master/dist/sticky-kit.min.js')
+// Custom JavaScript
+script(src='js/custom.min.js')
+// ==============================================================
+// This page plugins
+// ==============================================================
+// Flot Charts JavaScript
+script(src='assets/plugins/flot/jquery.flot.js')
+script(src='assets/plugins/flot.tooltip/js/jquery.flot.tooltip.min.js')
+script(src='js/flot-data.js')
+// ==============================================================
+// Style switcher
+// ==============================================================
+script(src='assets/plugins/styleswitcher/jQuery.style.switcher.js')
+script.
+    $(document).ready(function() {
+    $(".nav-tabs a").click(function() {
+    $(this).tab('show');
+    });
+    });
+    $('.edit').click(function() {
+    var id = $(this).val();
+    alert(id);
+    $.post('/edit_seminar', {
+    sno: id
+    }, function(data, xhr) {
+    var jsondata = JSON.stringify(data);
+    var data1 = JSON.parse(jsondata);
+    // alert(data1[0].name);
+    //alert(data1[0].date);
+    //alert(data1[0].venue);
+    $('#id').val(data1[0]._id);
+    $('#topic').val(data1[0].topic);
+    $('#seminar_by').val(data1[0].seminar_by);
+    $('#from').val(data1[0].from);
+    $('#date').val(data1[0].date);
+    $('#audience').val(data1[0].audience);
+    $('#college').val(data1[0].college);
+    $('#bhavan').val(data1[0].bhavan);
+    $('#floor').val(data1[0].floor);
+    $('#roomno').val(data1[0].roomno);
+    $('#image').val(data1[0].image);
+    });
+    $('.find').show();
+    });
+    $('.del').click(function() {
+    var id = $(this).val();
+    //alert(id);
+    $.post('/remove_seminar', {
+    sno: id
+    }, function(data, xhr) {
+    location.reload();
+    });
+    });
+#myModal.modal.fade(role='dialog')
+  .modal-dialog.modal-lg
+    .modal-content
+      .modal-header
+       center
+        h4.modal-title Update Seminar Details
+      .modal-body
+        h2 Add New Training Details
+        form(method='post', action='/update_seminar' )
+          .form-group.row
+            .col-xs-6
+              input#id.hide(type='text', name='id')
+              label(for='ex1') Name
+              input#topic.form-control(name='topic', type='text')
+              label(for='ex2') Seminar By
+              input#seminar_by.form-control(name='seminar_by', type='text')
+              label(for='usr') Institution:
+              input#from.form-control(type='text', name='from')
+              label(for='ex2') Date
+              input#date.form-control(name='date', type='date')
+              label(for='usr') Audience:
+              input#audience.form-control(type='text', name='audience')
+              
+            
+              
+
+            .col-xs-6
+              label(for='sel1') Select College:
+              select#college.form-control(name='college')
+                option(value='', selected='') Select College
+                option(value='Aditya Engineering College') Aditya Engineering College
+                option(value='Aditya College of Engineering and Technology') Aditya College of Engineering and Technology
+                option(value='Aditya College of Engineering') Aditya College of Engineering
+                option(value='Aditya Polytechnic Colleges') Aditya Polytechnic Colleges
+                option(value='Aditya Forensic College') Aditya Forensic College
+                option(value='Aditya Pharmacy College') Aditya Pharmacy College
+                option(value='Aditya Global Business School') Aditya Global Business School
+              label(for='sel1') Select Block:
+              select#bhavan.form-control(name='bhavan')
+                option(value='', selected='') Select College
+                option(value='Abdul Kalam Bhavan') Abdul Kalam Bhavan
+                option(value='Visweswarayya Bhavan') Visweswarayya Bhavan
+                option(value='Cotton Bhavan') Cotton Bhavan
+                option(value='K.L.Rao Bhavan') K.L.Rao Bhavan
+                option(value='Bill Gates Bhavan') Bill Gates Bhavan
+                option(value='C.V Raman Bhavan') C.V Raman Bhavan
+                option(value='Newton Bhavan') Newton Bhavan
+              label(for='sel1') Select Floor:
+              select#floor.form-control(name='floor')
+                option(value='Ground Floor') Ground Floor
+                option(value='1') 1
+                option(value='2') 2
+                option(value='3') 3
+              label(for='pwd') Room No:
+              input#roomno.form-control(name='roomno', type='text')
+              br
+          center
+            input.btn.btn-primary(type='submit')
+      .modal-footer
+        button.btn.btn-default(type='submit', data-dismiss='modal') Cancel

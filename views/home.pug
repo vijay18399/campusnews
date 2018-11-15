@@ -1,0 +1,668 @@
+doctype html
+html
+  head
+    title Editorial by HTML5 UP
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1, user-scalable=no')
+    link(rel='stylesheet', href='frontend_assets/css/main.css')
+    link(rel='stylesheet', href='https://www.w3schools.com/w3css/4/w3.css')
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css')
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js')
+    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js')
+  body.is-preload
+    // Wrapper
+    #wrapper
+      // Main
+      #main
+        .inner
+          // Header
+          header#header
+            a.logo(href='index.html')
+              strong Campus
+              |  News
+              span  It's Story of the day
+          // ----Home Section------------
+          section#home.tabcontent
+            header.major
+              h2 HighLights
+            .w3-content.w3-section(style='max-width:1500px')
+              img.mySlides(src='images/pic11.jpg', style='width:100%')
+              img.mySlides(src='https://www.freewebheaders.com/wordpress/wp-content/gallery/romantic-heart/beautiful-pink-romantic-heart-blog-header.jpg', style='width:100%')
+            // -juuuuuu-------------
+            header.major
+              h2 About College
+            .features
+              article
+                span.icon.fa-book
+                .content
+                  h3 Aditya library
+                  p
+                    | Libraries are the roots deep embedded of this humongous “Aditya” sharing its Wisdom & Knowledge. It has a vast and eclectic collection of books, journals, databases, audio-visual aids, CDs, DVDs, e-books etc..,
+              article
+                span.icon.fa-microchip
+                .content
+                  h3 Campus net
+                  p
+                    | Campusnet is the soul of “Aditya” bringing in the updates of each and every event varying from culturals to exams to placements and in between everything.
+              article
+                span.icon.fa-desktop
+                .content
+                  h3 Aditya blog
+                  p
+                    | “Aditya Blog” is the center of information to know about various entrance exams results and proceedings in Aditya Campus. It is a platform to bring out the intriguing talents of the students from varied cultures & sources.
+              article
+                span.icon.fa-credit-card
+                .content
+                  h3 online fee payment
+                  p
+                    | The most common means of payment involve use of money, cheque, or debit, credit or bank transfers.
+            // -juuuuuu-------------
+            header.major
+              h2 MOUS
+            .box.alt
+              .row.gtr-50.gtr-uniform
+                .col-4
+                  span.image.fit
+                    img(src='images/Capture10.PNG', alt='')
+                .col-4
+                  span.image.fit
+                    img(src='images/Capture11.PNG', alt='')
+                .col-4
+                  span.image.fit
+                    img(src='images/Capture12.PNG', alt='')
+                // Break
+                .col-4
+                  span.image.fit
+                    img(src='images/Capture.PNG', alt='')
+                .col-4
+                  span.image.fit
+                    img(src='images/Capture2.PNG', alt='')
+                .col-4
+                  span.image.fit
+                    img(src='images/Capture3.PNG', alt='')
+                // Break
+                .col-4
+                  span.image.fit
+                    img(src='images/Capture4.PNG', alt='')
+                .col-4
+                  span.image.fit
+                    img(src='images/Capture5.PNG', alt='')
+                .col-4
+                  span.image.fit
+                    img(src='images/Capture6.PNG', alt='')
+            // -juuuuuu-------------
+            header.major
+              h2 Placements(2017-2019)
+            section#banner
+              .content
+                header
+                  h1
+                    | HELLO ADITYA...!
+                p
+                  | At Aditya, we believe employability is more than a skill; it is an attitude, it is a practice. So, we instill this attitude through continuous training in learning skills, behavioral skills, life skills in addition to aptitude and communication skills.And this training starts in the first year of engineering itself. Specific Campus Recruitment Training programs are conducted in the third year, with an emphasis on problem solving, critical thinking, communication skills and team work.
+              span.image.object
+                img(src='https://www.askiitians.com/blog/wp-content/uploads/2014/01/4.jpg', alt='')
+            .container
+              .row-fluid
+                .span8
+                  header.major
+                    h2 Reach Aditya
+                  <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d5007.500461996196!2d82.07006952644942!3d17.09196767994566!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sen!2sin!4v1542073370357" width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+          // Trainings Section
+          section#trainings.tabcontent
+            header.major
+              h2 Trainings
+            .posts
+              if trainings
+                 each member in trainings
+                    article
+                      a.image(href='#')
+                        <img src=#{member.image}  height="120px" alt="" />
+                      table
+                        tbody
+                          tr
+                            th.hide  id
+                            td.hide #{member._id}
+                          tr
+                            th Name
+                            td #{member.name}
+                          tr
+                           th Conducted By
+                            td #{member.conducted_by}
+                          tr
+                            th Date
+                            td #{member.date}
+                          tr
+                            th Price
+                            td #{member.price}
+                      ul.actions
+                       li
+                          button.trainings_venue(data-toggle='modal', data-target='#myModal1' value=member._id) Venue 
+                       li
+                          button.trainings_trainer(data-toggle='modal', data-target='#myModal2' value=member._id) Trainer Info
+                         
+         
+          section#workshops.tabcontent
+            header.major
+              h2 workshops
+            .posts
+              if workshops
+                 each member in workshops
+                    article
+                      a.image(href='#')
+                        <img src=#{member.image}  height="120px" alt="" />
+                      table
+                        tbody
+                          tr
+                            th.hide  id
+                            td.hide #{member._id}
+                          tr
+                            th Name
+                            td #{member.name}
+                          tr
+                           th Conducted By
+                            td #{member.conducted_by}
+                          tr
+                            th Date
+                            td #{member.date}
+                          tr
+                            th Price
+                            td #{member.price}
+                      ul.actions
+                       li
+                          button.workshops_venue(data-toggle='modal', data-target='#myModal1' value=member._id) Venue 
+                       li
+                          button.workshops_trainer(data-toggle='modal', data-target='#myModal2' value=member._id) Trainer info     
+      
+          // ----Exam Section------------
+          section#exam.tabcontent
+                 header.major
+                       h2 Exam Schedules & Results
+                 if examupdates
+                  each member in examupdates
+                   .box
+                     h6.date(align='right') Published on : #{member.date}
+                     h4
+                      center
+                       code
+                        #{member.name}
+                     .box.info
+                       | all #{member.course} Students Informed that #{member.course} #{member.regulation} #{member.semester}  #{member.type} is out Now,Please check Below Link for further deatils
+                     center
+                       <a class="big button" href="#{member.image}">#{member.type}</a>
+                       
+                                 // ----Event Section------------
+          section#events.tabcontent
+            header.major
+              h2 Events
+            h4 Veda Tech Fest
+            p.event
+              span.image.left
+                img(src='images/veda.png', alt='')
+              | VEDA is a technical fest conducted at the ADITYA CAMPUS for extracting the hidden talents in the students and to for their carrier motivation. This is conducted in the month of September of every year. All the surrounding colleges are invited for the participation .Interesting aspects like ROBOTICS is conducted.There are many other aspects in which students get a good plat form for their exposure.
+            hr
+            h4 Colors Fest
+            p.event
+              span.image.right
+                img(src='images/colours.png', alt='')
+              | A new meaning for COLOURS in the latest online dictionary reads "A SOUTH-INDIAN ANNUAL YOUTH FESTIVAL celebrated in the month of January",spearheaded by ADITYA ENGINEERING AND PHARMACY COLLEGES. Colours, a state level youth festival has been initiated at ADITYA CAMPUS , Surampalem in the year 2009,and also celebrated in 2010,2011 and 2012 will be continued in the further years.Since then colours ,Youth Festival is celebrated with much pomp and gaiety with immense personalities from 9th to 11th Jan.Nearly 50000 people visit this event.
+            br  
+            hr
+            h4 Farmacy  Fest
+            p.event
+              span.image.left
+                img(src='images/fest.jpg', alt='')
+              |  Udaan is a  fest conducted at the ADITYA PHARMACY CAMPUS for extracting the hidden talents in the students and to for their carrier motivation. This is conducted in the month of September of every year. Youth Festival is celebrated with much pomp and gaiety with immense personalities of the students..
+            br
+            br
+            br   
+            hr
+            h4 Code Heat
+            p.event
+              span.image.right
+                img(src='images/code.jpg', alt='')
+              | Students who know how to code will have access to the best paid and fastest growing jobs. CODE < HEAT> is designed with this in mind to create the ability to learn coding more quickly, efficiently and at a higher quality under the guidance of a team of experts. CODE < HEAT> is an exclusive summer training program of t-HUB  which helps in improving coding skills in programming languages like C, Data Structures, C++, Core Java, HTML5 and Eclipse technologies.
+            br
+            
+            br  
+            hr
+            h4 Project Space
+            p.event
+              span.image.left
+                img(src='images/project.png', alt='')
+              | Growth of new knowledge together with rapidly evolving technological skills, the skill to communicate across ... Technical Hub trains students in various disciplines beyond technological labels besides equipping them with ... PROJECT SPACE.
+            br
+            br
+            br  
+            hr
+            h4 T Connect
+            p.event
+              span.image.right
+                img(src='images/connect.png', alt='')
+              | The official mobile app for Aditya Engineering College, is designed to provide you with campus news, class schedule, grades, registration hold information, events, campus map, contact information and transit routes to College campus.
+            // -
+          section#gallery.tabcontent
+           .box.alt
+            if eventgallery
+             each member in eventgallery
+              header.major
+              h2 #{member.name} (#{member.year})
+              .row.gtr-50.gtr-uniform
+                .col-4
+                  span.image.fit
+                    <img src="#{member.links[0]}" alt="Trulli" > 
+                .col-4
+                  span.image.fit
+                    <img src="#{member.links[1]}" alt="Trulli" > 
+                .col-4
+                  span.image.fit
+                    <img src="#{member.links[2]}" alt="Trulli" > 
+                // Break
+                .col-4
+                  span.image.fit
+                    <img src="#{member.links[3]}" alt="Trulli" > 
+                .col-4
+                  span.image.fit
+                    <img src="#{member.links[4]}" alt="Trulli" > 
+                .col-4
+                  span.image.fit
+                    <img src="#{member.links[5]}" alt="Trulli" > 
+                // Break
+                .col-4
+                  span.image.fit
+                    <img src="#{member.links[6]}" alt="Trulli" > 
+                .col-4
+                  span.image.fit
+                    <img src="#{member.links[7]}" alt="Trulli" > 
+                .col-4
+                  span.image.fit
+                    <img src="#{member.links[8]}" alt="Trulli" > 
+                .col-4
+                  span.image.fit
+                    <img src="#{member.links[9]}" alt="Trulli" > 
+                .col-4
+                  span.image.fit
+                    <img src="#{member.links[10]}" alt="Trulli" > 
+                .col-4
+                  span.image.fit
+                    <img src="#{member.links[11]}" alt="Trulli" > 
+            center
+              ul.pagination
+                li
+                  span.button.disabled Prev
+                li
+                  a.page.active(href='#') 1
+                li
+                  a.page(href='#') 2
+                li
+                  a.page(href='#') 3
+                li
+                  span …
+                li
+                  a.page(href='#') 8
+                li
+                  a.page(href='#') 9
+                li
+                  a.page(href='#') 10
+                li
+                  a.button(href='#') Next
+          // ----Articles Section------------
+          section#news.tabcontent
+              if articles
+                  each member in articles
+                    .box
+                      h4 #{member.name}
+                      p
+                        span.image.left
+                          <img src="#{member.image}" alt="Trulli" height='120px'>
+                        | #{member.description}
+                      p(style='text-align:right;') #{member.wrby} ( #{member.rollno})  from #{member.year} year, #{member.college}
+                     
+            
+          // ----Tech News Section------------
+          section#technews.tabcontent
+
+              center
+                    h2 TECH BITE
+              if technews
+                  each member in technews
+                    .box
+                      p(style='text-align:left;')
+                        b #{member.title}
+                        span(style='float:right;') Date :10/2/2018
+                      span.image.fit
+                        <img src="#{member.image}" alt="Trulli" height='140px'>
+                      blockquote
+                         | #{member.description}<br>
+                         |<b>Conclusion :</b>#{member.conclusion}
+                      p(align='right')
+                        a(href='#') #{member.author}
+                    hr.major
+
+            
+          // ----Seminars Section------------
+          section#seminars.tabcontent
+            center
+              h6 Seminars
+                 if seminars
+                    each member in seminars
+                     .box
+                       table
+                        tbody
+                          tr
+                            th TOPIC
+                            td #{member.topic}
+                          tr
+                            th BY
+                            td #{member.seminar_by}
+                          tr
+                            th From
+                            td #{member.from}
+                          tr
+                            th Date
+                            td #{member.date}
+                          tr
+                            th Audiance
+                            td #{member.audience}
+                          tr
+                            th Venue 
+                            td #{member.college} ,#{member.bhavan}, Floor No:#{member.floor}
+ 
+          // ----cdrive Section------------
+          section#cdrive.tabcontent
+            center
+              h6 Cdrive
+                 if cdrive
+                    each member in cdrive
+                     .box
+                       table
+                        tbody
+                          tr
+                            th Company Name
+                            td #{member.name}
+                          tr
+                            th Package
+                            td #{member.package}
+                          tr
+                            th Arrival date
+                            td #{member.date}
+                          tr
+                            th &nbsp
+                            td 
+                               <a class='big button' href=#{member.image}>Full Details</a>
+                          
+                          
+
+            
+          // ----pcandidates Section------------
+          section#pcandidates.tabcontent
+            h4 This Month Placed Candidates In Aditya
+            .table-wrapper
+              table
+                thead
+                  tr
+                    th Name
+                    th Rollno
+                    th Company
+                    th Package(LPA) 
+                tbody
+                  if placedcandidates
+                      each member in placedcandidates 
+                        tr
+                          td #{member.name}
+                          td #{member.rollno}
+                          td #{member.companyname}
+                          td #{member.package}
+                  
+            h4 What after B.Tech
+            ul.alt
+              li MTech/MS
+              li MBA
+              li Civil Services
+              li Entrepreneurship
+              li Scientist
+              li State Government Jobs 
+              li Jobs @ Core companies
+              li PSU
+      // 
+      // 
+      // Sidebar
+      #sidebar
+        .inner
+          //
+            Search
+            <section id="search" class="alt"><form action="#" method="post"><input id="query" name="query" type="text" placeholder="Search" /></form></section>
+            <!-- Menu
+          nav#menu
+            header.major
+              h2 Menu
+            ul
+              li
+                a#defaultOpen.tablinks(onclick="openCategory(event, 'home')") Homepage
+              li
+                a.tablinks(onclick="openCategory(event, 'trainings')") Trainings
+              li
+                a.tablinks(onclick="openCategory(event, 'workshops')") Workshops
+              li
+                a.tablinks(onclick="openCategory(event, 'exam')") Exam Updates
+              li
+                a.tablinks(onclick="openCategory(event, 'events')") Events
+              li
+                a.tablinks(onclick="openCategory(event, 'gallery')") Event Gallery
+              li
+                a.tablinks(onclick="openCategory(event, 'news')") newss
+              li
+                a.tablinks(onclick="openCategory(event, 'technews')") Tech News
+              li
+                a.tablinks(onclick="openCategory(event, 'seminars')") Seminars
+              li
+                a.tablinks(onclick="openCategory(event, 'cdrive')") Campus drive
+              li
+                a.tablinks(onclick="openCategory(event, 'pcandidates')") placed canditates
+          // Section
+          section
+            header.major
+              h2 Aditya sites
+            .mini-posts
+              article
+                a.image(href='http://aec.edu.in/#')
+                  img(src='images/main.png', alt='')
+                h6 Aditya Official
+                a.button(href='http://aec.edu.in/#') Go to site
+              article
+                a.image(href='https://technicalhub.io/')
+                  img(src='images/tech.png', alt='')
+                h6 Technical hub
+                a.button(href='https://technicalhub.io/') Go to site
+              
+          // Section
+          section
+            header.major
+              h2 Aditya Engineering College
+            p
+              | Aditya Engineering College-Autonomous & Top Engineering College with 180-Acre Green Campus .
+            ul.contact
+              li.fa-envelope-o
+                a(href='#')  info@aditya.ac.in
+              li.fa-phone +918842399977
+              li.fa-home Surampalem, Peddapuram, East Godavari district, Andhra Pradesh, India.
+          // Footer
+          footer#footer
+            p.copyright © Aditya News. All rights reserved.
+    #myModal1.modal
+      .modal-dialog
+        .modal-content
+          // Modal Header
+          .modal-header
+            h4.modal-title#name Training Name
+          // Modal body
+          .modal-body
+            h4 Venue
+            ul.alt
+              li#clg 
+              li#block 
+              li#floor
+              li#lab 
+              li#roomno 
+          // Modal footer
+          .modal-footer
+            a.btn.btn-danger(type='button', data-dismiss='modal') Close
+ 
+    #myModal2.modal
+      .modal-dialog
+        .modal-content
+          // Modal Header
+          .modal-header
+            h4.modal-title#name Mean Stack Trainer 
+          // Modal body
+          .modal-body
+            section#banner
+              .content
+                 header                   
+                   p Name : <b>Mr.Sandeep</b>
+                   p Contact :<b>9183838838</b>
+                   p Areas of Expertise :<b>Mongo DB, ExpressJs, AngularJS, JavaScript, NodeJs, HTML, CSS</b>
+                 ul.actions
+                  li
+                    a.button.big(href='http://www.google.com') Register for Course
+              span.image.object
+                 <img src="https://technicalhub.io/img/400x400/sandeep%20siva_certi.jpg"  alt="" />
+
+          // Modal footer
+          .modal-footer
+            a.btn.btn-danger(type='button', data-dismiss='modal') Close  
+    // Scripts
+    script.
+      function openCategory(evt, cityName) {
+      var i, tabcontent, tablinks;
+      tabcontent = document.getElementsByClassName("tabcontent");
+      for (i = 0; i < tabcontent.length; i++) {
+      tabcontent[i].style.display = "none";
+      }
+      tablinks = document.getElementsByClassName("tablinks");
+      for (i = 0; i < tablinks.length; i++) {
+      tablinks[i].className = tablinks[i].className.replace(" active", "");
+      }
+      document.getElementById(cityName).style.display = "block";
+      evt.currentTarget.className += " active";
+      }
+      // Get the element with id="defaultOpen" and click on it
+      document.getElementById("defaultOpen").click();
+    script.
+      var myIndex = 0;
+      carousel();
+      function carousel() {
+      var i;
+      var x = document.getElementsByClassName("mySlides");
+      for (i = 0; i < x.length; i++) {
+      x[i].style.display = "none";
+      }
+      myIndex++;
+      if (myIndex > x.length) {myIndex = 1}
+      x[myIndex-1].style.display = "block";
+      setTimeout(carousel, 2000); // Change image every 2 seconds
+      }
+    script.
+      var slideIndex = 0;
+      carousel();
+      function carousel() {
+      var i;
+      var x = document.getElementsByClassName("mySlides1");
+      for (i = 0; i < x.length; i++) {
+      x[i].style.display = "none";
+      }
+      slideIndex++;
+      if (slideIndex > x.length) {slideIndex = 1}
+      x[slideIndex-1].style.display = "block";
+      setTimeout(carousel, 4000);
+      }
+    script.
+    
+      $('.trainings_venue').click(function() {
+      var id = $(this).val();
+      alert(id);
+      $.post('/trainings_venue', {
+      sno: id
+      }, function(data, xhr) {
+      var jsondata = JSON.stringify(data);
+      var data1 = JSON.parse(jsondata);
+      alert(data1[0].name);
+      alert(data1[0].date);
+      alert(data1[0].venue);
+      $('#trainer').val(data1[0].trainer);
+      $('#url').val(data1[0].url);
+      $clg="College :" + data1[0].college;
+      $block="Block :" + data1[0].bhavan;
+      $floor="Floor :" + data1[0].floor;
+      $lab="Lab:" + data1[0].lab;
+      $name=data1[0].name;
+      $roomno="Room No :" + data1[0].roomno;
+      document.getElementById("name").innerHTML = $name  +"Traing  Venue";
+      document.getElementById("clg").innerHTML = $clg;
+      document.getElementById("block").innerHTML = $block;
+      document.getElementById("floor").innerHTML = $floor;
+      document.getElementById("lab").innerHTML = $lab;
+      document.getElementById("roomno").innerHTML = $roomno;
+      });
+      });
+      $('.workshops_venue').click(function() {
+      var id = $(this).val();
+      alert(id);
+      $.post('/workshops_venue', {
+      sno: id
+      }, function(data, xhr) {
+      var jsondata = JSON.stringify(data);
+      var data1 = JSON.parse(jsondata);
+      alert(data1[0].lab);
+      alert(data1[0].college);
+      alert(data1[0].floor);
+      alert(data1[0].roomno);
+      $name2=data1[0].name;
+      $clg2="College :" + data1[0].college;
+      $block2="Block :" + data1[0].bhavan;
+      $floor2="Floor :" + data1[0].floor;
+      $lab2="Lab:" + data1[0].lab;
+      $roomno2="Room No :" + data1[0].roomno;
+      document.getElementById("name").innerHTML = $name2+"Workshop Venue";
+      document.getElementById("clg").innerHTML = $clg2;
+      document.getElementById("block").innerHTML = $block2;
+      document.getElementById("floor").innerHTML = $floor2;
+      document.getElementById("lab").innerHTML = $lab2;
+      document.getElementById("roomno").innerHTML = $roomno2;
+        
+      });
+      });
+      $('.trainings_trainer').click(function() {
+      var id = $(this).val();
+      alert(id);
+      $.post('/trainings_venue', {
+      sno: id
+      }, function(data, xhr) {
+      var jsondata = JSON.stringify(data);
+      var data1 = JSON.parse(jsondata);
+      alert(data1[0].name);
+      alert(data1[0].date);
+      alert(data1[0].venue);
+      $('#trainer').val(data1[0].trainer);
+      $('#url').val(data1[0].url);
+      $name=data1[0].name;
+      $clg="College :" + data1[0].college;
+      $block="Block :" + data1[0].bhavan;
+      $floor="Floor :" + data1[0].floor;
+      $lab="Lab:" + data1[0].lab;
+      $roomno="Room No :" + data1[0].roomno;
+      document.getElementById("name").innerHTML = $name +"Workshop Venue";
+      document.getElementById("clg").innerHTML = $clg;
+      document.getElementById("block").innerHTML = $block;
+      document.getElementById("floor").innerHTML = $floor;
+      document.getElementById("lab").innerHTML = $lab;
+      document.getElementById("roomno").innerHTML = $roomno;
+
+      });
+      });
+    script(src='frontend_assets/js/jquery.min.js')
+    script(src='frontend_assets/js/browser.min.js')
+    script(src='frontend_assets/js/breakpoints.min.js')
+    script(src='frontend_assets/js/util.js')
+    script(src='frontend_assets/js/main.js')
