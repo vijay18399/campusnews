@@ -11,6 +11,7 @@ var cdrive=db.get('cdrive');
 var exam=db.get('exam');
 var tech=db.get('techbit');
 var articles=db.get('articles');
+var trainers=db.get('trainers');
 var multer  = require('multer');
 
 //----Uploading Code
@@ -558,6 +559,53 @@ router.post('/remove_article', function(req, res) {
     });
 });
 //End of articles
+router.get('/trainers', function(req, res) {
+    trainers.find({},function(err,docs){
+        res.locals.trainers = docs;
+  res.render('trainer_form');
+});
+});
+//Adding new article details
+router.post('/add_trainer', upload.single('image'), function(req, res) {
+    console.log(req.body.name);
+    //console.log(req.body.date);
+    //console.log(req.body.password);
+    var data = {
+        name : req.body.name,
+        contact : req.body.contact,
+        
+        areas : req.body.areas,
+        trainerid: req.body.trainerid,
+        register : req.body.register,
+        
+        
+        image : 'uploads/' + req.file.originalname
+    }
+    trainers.insert(data, function(err,data){
+    console.log(data);
+    res.redirect('/trainers');
+    });
+});
+
+//find and edit
+router.post('/edit_trainer', function(req, res) {
+    console.log(req.body.sno);
+    var id = req.body.sno;
+    trainers.find({"_id":id}, function(err,docs){
+        console.log(docs);
+      res.send(docs);
+    });
+});
+
+//removing articles
+router.post('/remove_trainer', function(req, res) {
+    //console.log(req.body.sno);
+    var id = req.body.sno;
+    trainers.remove({"_id":id}, function(err,docs){
+        //console.log(docs);
+      res.send(docs);
+    });
+});
 //-----------------front END----->
 //rendering
 
