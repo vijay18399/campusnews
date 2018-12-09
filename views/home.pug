@@ -158,6 +158,9 @@ html
                       table
                         tbody
                           tr
+                            th.hide  trainerid
+                            td.hide #{member.trainerid}
+                          tr
                             th.hide  id
                             td.hide #{member._id}
                           tr
@@ -176,7 +179,7 @@ html
                        li
                           button.workshops_venue(data-toggle='modal', data-target='#myModal1' value=member._id) Venue 
                        li
-                          button.workshops_trainer(data-toggle='modal', data-target='#myModal2' value=member._id) Trainer info     
+                          button.trainings_trainer(data-toggle='modal', data-target='#myModal2' value=member.trainerid) Trainer Info
       
           // ----Exam Section------------
           section#exam.tabcontent
