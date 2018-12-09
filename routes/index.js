@@ -75,7 +75,7 @@ router.post('/addtraining', upload.single('image'), function(req, res) {
         conducted_by : req.body.conducted_by,
         price: req.body.price,
         date : req.body.date,
-        url : req.body.url,
+        trainerid : req.body.trainerid,
         college : req.body.college,
         bhavan: req.body.bhavan,
         floor: req.body.floor,
@@ -119,7 +119,7 @@ router.post('/update_training', function(req, res) {
         price: req.body.price,
         date : req.body.date,
         conducted_by : req.body.conducted_by,
-        url : req.body.url,
+        trainerid : req.body.trainerid,
         college : req.body.college,
         bhavan: req.body.bhavan,
         floor: req.body.floor,
@@ -679,4 +679,14 @@ router.post('/workshops_venue', function(req, res) {
 
 });
 //
+//show tainer details
+//edit
+router.post('/trainer', function(req, res) {
+    console.log(req.body.sno);
+    var trainerid = req.body.sno;
+    trainers.find({"trainerid":trainerid}, function(err,docs){
+        console.log(docs);
+      res.send(docs);
+    });
+});
 module.exports = router;

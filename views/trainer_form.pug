@@ -297,18 +297,18 @@ script.
     }, function(data, xhr) {
     var jsondata = JSON.stringify(data);
     var data1 = JSON.parse(jsondata);
-    // alert(data1[0].name);
-    //alert(data1[0].date);
-    //alert(data1[0].venue);
-    $('#id').val(data1[0]._id);
-    $('#name').val(data1[0].name);
-    $('#trainerid').val(data1[0].trainerid);
-    $('#contact').val(data1[0].contact);
-    $('#register').val(data1[0].register);
-    $('#areas').val(data1[0].areas);
     
-    $('#image').val(data1[0].image);
-    });
+   
+   
+    
+    document.getElementById("name").innerHTML = data1[0].name;
+    document.getElementById("contact").innerHTML = data1[0].contact;
+  
+    document.getElementById("areas").innerHTML = data1[0].areas;
+   
+    document.getElementById("image").src = data1[0].image; 
+    document.getElementById("register").href = data1[0].register;
+     });
     $('.find').show();
     });
     
@@ -326,19 +326,39 @@ script.
     .modal-content
       .modal-header
        center 
-        h4.modal-title Update Trainer Details
+        h4.modal-title View Trainer Details
       .modal-body
         section#banner
               .content
-                 header                   
-                   p#name 
-                   p#areas 
-                   p#register 
-                 ul.actions
-                  li
-                    <a href=""></a>
-              span.image.object
-                 <img src="https://technicalhub.io/img/400x400/sandeep%20siva_certi.jpg"  alt="" />
+                 header
+                  .row
+                     .col-md-12.col-sm-12
+                            center
+                               <img id="image" src=""  alt="" />
+                               <hr>
+                     .col-md-6.col-md-offset-3.col-sm-12 
+                               table.table.table-striped
+                                 tbody
+                                   tr
+                                     th(scope='col') Name
+                                     th#name(scope='col')
+                                     
+                                 
+                                   tr
+                                     th(scope='row') Contact
+                                     td#contact
+                                     
+                                   tr
+                                     th(scope='row') Ateas of Expertise
+                                     td#areas
+                                     
+                                   tr
+                                     th(scope='row') Register to link
+                                     td
+                                       <a id="register" href="">view</a>
+                                     
+                         
+      
 
       .modal-footer
         button.btn.btn-default(type='submit', data-dismiss='modal') Cancel

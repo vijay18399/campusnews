@@ -186,8 +186,8 @@ head
                   .col-xs-4
                     label(for='ex2') Date
                     input#ex2.form-control(name='date', type='date')
-                    label(for='pwd') URL:
-                    input#usr.form-control(type='text', name='url')
+                    label(for='pwd') trainerid:
+                    input#usr.form-control(type='text', name='trainerid')
                     label(for='sel1') Select College:
                     select#sel1.form-control(name='college')
                       option(value='', selected='') Select College
@@ -235,7 +235,7 @@ head
                       th price
                       th date
                       th conducted by
-                      th url
+                      th trainerid
                       th college
                       th bhavan
                       th floor 
@@ -253,7 +253,7 @@ head
                           td #{member.price}
                           td #{member.date}
                           td #{member.conducted_by}
-                          td #{member.url}
+                          td #{member.trainerid}
                           td #{member.college}
                           td #{member.bhavan}
                           td #{member.floor}
@@ -329,15 +329,12 @@ script.
     }, function(data, xhr) {
     var jsondata = JSON.stringify(data);
     var data1 = JSON.parse(jsondata);
-    // alert(data1[0].name);
-    //alert(data1[0].date);
-    //alert(data1[0].venue);
     $('#id').val(data1[0]._id);
     $('#name').val(data1[0].name);
     $('#price').val(data1[0].price);
     $('#date').val(data1[0].date);
     $('#conducted_by').val(data1[0].conducted_by);
-    $('#url').val(data1[0].url);
+    $('#trainerid').val(data1[0].trainerid);
     $('#college').val(data1[0].college);
     $('#bhavan').val(data1[0].bhavan);
     $('#floor').val(data1[0].floor);
@@ -381,8 +378,8 @@ script.
             .col-xs-4
               label(for='ex2') Date
               input#ex2.form-control(name='date', type='date')
-              label(for='pwd') URL:
-              input#usr.form-control(type='text', name='url')
+              label(for='pwd') trainerid:
+              input#usr.form-control(type='text', name='trainerid')
               label(for='sel1') Select College:
               select#sel1.form-control(name='college')
                 option(value='', selected='') Select College

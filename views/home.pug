@@ -122,6 +122,9 @@ html
                       table
                         tbody
                           tr
+                            th.hide  trainerid
+                            td.hide #{member.trainerid}
+                          tr
                             th.hide  id
                             td.hide #{member._id}
                           tr
@@ -140,7 +143,7 @@ html
                        li
                           button.trainings_venue(data-toggle='modal', data-target='#myModal1' value=member._id) Venue 
                        li
-                          button.trainings_trainer(data-toggle='modal', data-target='#myModal2' value=member._id) Trainer Info
+                          button.trainings_trainer(data-toggle='modal', data-target='#myModal2' value=member.trainerid) Trainer Info
                          
          
           section#workshops.tabcontent
@@ -514,20 +517,20 @@ html
         .modal-content
           // Modal Header
           .modal-header
-            h4.modal-title#name Mean Stack Trainer 
+            h4.modal-title Trainer Details
           // Modal body
           .modal-body
             section#banner
               .content
                  header                   
-                   p Name : <b>Mr.Sandeep</b>
-                   p Contact :<b>9183838838</b>
-                   p Areas of Expertise :<b>Mongo DB, ExpressJs, AngularJS, JavaScript, NodeJs, HTML, CSS</b>
+                   p Name : <b id="trainername"></b>
+                   p Contact :<b id="contact"></b>
+                   p Areas of Expertise :<b id="areas"></b>
                  ul.actions
                   li
-                    a.button.big(href='http://www.google.com') Register for Course
+                    a#register.button.big(href='') Register for Course
               span.image.object
-                 <img src="https://technicalhub.io/img/400x400/sandeep%20siva_certi.jpg"  alt="" />
+                 <img id="image" src=""  alt="" />
 
           // Modal footer
           .modal-footer
@@ -636,28 +639,19 @@ html
       $('.trainings_trainer').click(function() {
       var id = $(this).val();
       alert(id);
-      $.post('/trainings_venue', {
+      $.post('/trainer', {
       sno: id
       }, function(data, xhr) {
       var jsondata = JSON.stringify(data);
       var data1 = JSON.parse(jsondata);
-      alert(data1[0].name);
-      alert(data1[0].date);
-      alert(data1[0].venue);
-      $('#trainer').val(data1[0].trainer);
-      $('#url').val(data1[0].url);
-      $name=data1[0].name;
-      $clg="College :" + data1[0].college;
-      $block="Block :" + data1[0].bhavan;
-      $floor="Floor :" + data1[0].floor;
-      $lab="Lab:" + data1[0].lab;
-      $roomno="Room No :" + data1[0].roomno;
-      document.getElementById("name").innerHTML = $name +"Workshop Venue";
-      document.getElementById("clg").innerHTML = $clg;
-      document.getElementById("block").innerHTML = $block;
-      document.getElementById("floor").innerHTML = $floor;
-      document.getElementById("lab").innerHTML = $lab;
-      document.getElementById("roomno").innerHTML = $roomno;
+    
+      document.getElementById("trainername").innerHTML = data1[0].name;
+      document.getElementById("contact").innerHTML = data1[0].contact;
+  
+      document.getElementById("areas").innerHTML = data1[0].areas;
+   
+      document.getElementById("image").src = data1[0].image; 
+      document.getElementById("register").href = data1[0].register;
 
       });
       });
