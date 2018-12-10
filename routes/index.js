@@ -12,6 +12,8 @@ var exam=db.get('exam');
 var tech=db.get('techbit');
 var articles=db.get('articles');
 var trainers=db.get('trainers');
+var slider=db.get('slider');
+
 var multer  = require('multer');
 
 //----Uploading Code
@@ -34,19 +36,24 @@ router.get('/', function(req, res) {
     res.locals.tcount=docs.length;
     
     });
-       articles.find({}, function(err,docs){
+    articles.find({}, function(err,docs){
     console.log(docs.length);
     res.locals.acount=docs.length;
     
     });
-          tech.find({}, function(err,docs){
+    exam.find({}, function(err,docs){
     console.log(docs.length);
-    res.locals.tcount=docs.length;
+    res.locals.ecount=docs.length;
     
     });
-             trainings.find({}, function(err,docs){
+    seminars.find({}, function(err,docs){
     console.log(docs.length);
-    res.locals.tcount=docs.length;
+    res.locals.scount=docs.length;
+    
+    });
+    cdrive.find({}, function(err,docs){
+    console.log(docs.length);
+    res.locals.ccount=docs.length;
     
     });
      workshops.find({}, function(err,docs){
@@ -54,6 +61,7 @@ router.get('/', function(req, res) {
     res.locals.wcount=docs.length;
      res.render('index');
     });
+
    
 });
 //----Homepage End 
@@ -606,6 +614,53 @@ router.post('/remove_trainer', function(req, res) {
       res.send(docs);
     });
 });
+
+
+//=================================slider starts======================>
+router.get('/slider', function(req, res) {
+    slider.find({},function(err,docs){
+        res.locals.slider = docs;
+  res.render('slider');
+});
+});
+//multiple uploads
+/*
+router.post('/add_event', upload.array('photos', 12), function(req, res) {
+    console.log(req.file);
+    res.redirect('/event');
+});  */
+router.post('/add_slider', upload.single('image'), function(req, res) {
+    console.log(req.body.name);
+    //console.log(req.body.date);
+    //console.log(req.body.password);
+    var data = {
+        name : req.body.name,
+
+        
+        
+        image : 'uploads/' + req.file.originalname
+    }
+    slider.insert(data, function(err,data){
+    console.log(data);
+    res.redirect('/slider');
+    });
+});
+
+
+//find and edit
+
+
+//------------------------remove-----------------------------
+router.post('/remove_slider', function(req, res) {
+    //console.log(req.body.sno);
+    var id = req.body.sno;
+    slider.remove({"_id":id}, function(err,docs){
+        //console.log(docs);
+      res.send(docs);
+    });
+});
+
+
 //-----------------front END----->
 //rendering
 
@@ -648,6 +703,11 @@ router.get('/mainpage', function(req, res) {
 
  
 });
+            slider.find({},function(err,docs){
+                 console.log(docs);
+        res.locals.slider = docs;
+            
+});
             tech.find({},function(err,docs){
                  console.log(docs);
         res.locals.technews = docs;
@@ -689,4 +749,6 @@ router.post('/trainer', function(req, res) {
       res.send(docs);
     });
 });
+
+
 module.exports = router;

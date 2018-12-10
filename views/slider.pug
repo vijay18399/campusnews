@@ -1,3 +1,4 @@
+
 doctype html
 head
   meta(charset='utf-8')
@@ -6,9 +7,11 @@ head
   meta(name='viewport', content='width=device-width, initial-scale=1')
   meta(name='description', content='')
   meta(name='author', content='')
+  
+ 
   // Favicon icon
-  link(rel='icon', type='image/png', sizes='16x16', href='images/logo.png')
-  title Aditya News
+  link(rel='icon', type='image/png', sizes='16x16', href='assets/images/favicon.png')
+  title NEWS
   // Bootstrap Core CSS
   link(href='assets/plugins/bootstrap/css/bootstrap.min.css', rel='stylesheet')
   // Custom CSS
@@ -39,7 +42,7 @@ head
       // Logo
       // ==============================================================
       .navbar-header
-        a.navbar-brand(href='/')
+        a.navbar-brand(href='index.html')
           // Logo icon
           b
             // You can put here icon as well // <i class="wi wi-sunset"></i> //
@@ -62,7 +65,11 @@ head
           li.nav-item
             a.nav-link.nav-toggler.hidden-md-up.text-muted.waves-effect.waves-dark(href='javascript:void(0)')
               i.ti-menu
-          
+          li.nav-item.hidden-sm-down
+            form.app-search.p-l-20
+              input.form-control(type='text', placeholder='Search for...')
+              a.srh-btn
+                i.ti-search
         // ==============================================================
         // User profile and search
         // ==============================================================
@@ -145,71 +152,89 @@ head
     // Container fluid
     // ==============================================================
     .container-fluid
-      .row
-        .col-md-4
-          .dash-box.dash-box-color-1
-            .dash-box-icon
-              i.fa.fa-user(aria-hidden='true')
-            .dash-box-body
-              span.dash-box-count #{tcount}
-              span.dash-box-title Trainings
-            .dash-box-action
-              button More Info
-        .col-md-4  
-          .dash-box.dash-box-color-2
-            .dash-box-icon
-              i.fa.fa-american-sign-language-interpreting
-            .dash-box-body
-              span.dash-box-count #{wcount}
-              span.dash-box-title Workshops
-            .dash-box-action
-              button More Info
-        .col-md-4
-          .dash-box.dash-box-color-3
-            .dash-box-icon
-              i.fa.fa-commenting
-            .dash-box-body
-              span.dash-box-count #{scount}
-              span.dash-box-title Seminars
-            .dash-box-action
-              button More Info
-      .row
-        .col-md-4
-          .dash-box.dash-box-color-4
-            .dash-box-icon
-              i.fa.fa-user(aria-hidden='true')
-            .dash-box-body
-              span.dash-box-count #{acount}
-              span.dash-box-title Articles
-            .dash-box-action
-              button More Info
-        .col-md-4  
-          .dash-box.dash-box-color-2
-            .dash-box-icon
-              i.fa.fa-american-sign-language-interpreting
-            .dash-box-body
-              span.dash-box-count #{ecount}
-              span.dash-box-title Exam updates
-            .dash-box-action
-              button More Info
-        .col-md-4
-          .dash-box.dash-box-color-3
-            .dash-box-icon
-              i.fa.fa-commenting
-            .dash-box-body
-              span.dash-box-count #{ccount}
-              span.dash-box-title Campus drive
-            .dash-box-action
-              button More Info        
+      // ==============================================================
+      // Bread crumb and right sidebar toggle
+      // ==============================================================
+      .row.page-titles
+        .col-md-6.col-8.align-self-center
+          h3.text-themecolor.m-b-0.m-t-0 HOME
+          ol.breadcrumb
+            li.breadcrumb-item
+              a(href='javascript:void(0)') Home
+            li.breadcrumb-item.active TABLES
+         
+      // ==============================================================
+      // End Bread crumb and right sidebar toggle
+      // ==============================================================
+      // ==============================================================
+      // Start Page Content
+      // ==============================================================
+      // Row
+      //form
+      .container
+         .card
+            .card-block
+              h2 Add slider
+              form#myForm(method='post', action='/add_slider' , enctype='multipart/form-data')
+                .form-group.row
+                  .col-xs-12
+                    label(for='ex1') Slide  number
+                    input#ex1.form-control(name='name', type='text')
+                    label(for='pwd') upload:
+                    input#pwd.form-control(type='file', name='image',required)
+                                        
+                                      
+                .pull-right
+                  input.btn.btn-primary(type='submit')
 
       
-
-   
+         .card
+            .card-block
+              h3 slider Tables
+              .table-responsive
+                table.table
+                  thead
+                    tr.w3-light-grey
+                      th.hide Id
+                      th Name
+                      th image
+                      
+                      
+                      th delete
+                  tbody
+                   if slider
+                    each member in slider
+                      tr
+                        td.hide #{member._id}
+                        td #{member.name}
+                        
+                        td <img src="#{member.image}" alt="Trulli" width="50" height="50">  
+                         
+                        td
+                          button.btn.btn-danger.del(value=member._id) Remove  
+      // ==============================================================
+      // End PAge Content
+      // ==============================================================
+    // ==============================================================
+    // End Container fluid
+    // ==============================================================
+    // ==============================================================
     // footer
     // ==============================================================
     footer.footer.text-center
       | &copy; 2018 ADITYA NEWS
-   
+    // ==============================================================
+    // End footer
+    // ==============================================================
+  // ==============================================================
+  // End Page wrapper
+  // ==============================================================
+// ==============================================================
+// End Wrapper
+// ==============================================================
+// ==============================================================
+// All Jquery
+// ==============================================================
 script(src='assets/plugins/jquery/jquery.min.js')
 // Bootstrap tether Core JavaScript
 script(src='assets/plugins/bootstrap/js/tether.min.js')
@@ -235,5 +260,20 @@ script(src='js/flot-data.js')
 // Style switcher
 // ==============================================================
 script(src='assets/plugins/styleswitcher/jQuery.style.switcher.js')
-
-  
+script.
+    $(document).ready(function() {
+    $(".nav-tabs a").click(function() {
+    $(this).tab('show');
+    });
+    });
+    
+    
+    $('.del').click(function() {
+    var id = $(this).val();
+    //alert(id);
+    $.post('/remove_slider', {
+    sno: id
+    }, function(data, xhr) {
+    location.reload();
+    });
+    });
