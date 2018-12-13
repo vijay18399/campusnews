@@ -144,6 +144,8 @@ head
             a.waves-effect(href='/circular')
               i.fa.fa-handshake-o.m-r-10(aria-hidden='true')
               | CIRCULAR
+          
+          
         .text-center.m-t-30
           
       // End Sidebar navigation
@@ -181,26 +183,29 @@ head
       .container
          .card
             .card-block
-              h2 Add New Tech News
-              form(method='post', action='/add_technews' , enctype='multipart/form-data')
+              h2 Add Notice
+              form(method='post', action='/add_notice' , enctype='multipart/form-data')
                 .form-group.row
-                  .col-xs-6
-                    label(for='ex1') Title:
-                    input#ex1.form-control(name='title', type='text')
-                    label(for='comment') description :
-                    textarea#comment.form-control(rows='4', name='description')
-                    
+                  .col-xs-12
+                    label(for='ex2') Date
+                    input#ex2.form-control(name='date', type='date')
                     label(for='pwd') upload:
-                    input#pwd.form-control(type='file', name='image',required)
-                  
-                  .col-xs-6
-                    label(for='ex2') Author:
-                    input#ex2.form-control(name='author', type='text')
-                    label(for='usr') rollno:
-                    input#usr.form-control(type='text', name='rollno')
-                    label(for='comment') conclusion :
-                    textarea#comment.form-control(rows='4', name='conclusion')
+                    input#pwd.form-control(type='file', name='image')
                     
+                    label(for='sel1') Select Category:
+                    select#sel1.form-control(name='category')
+                      option(value='', selected='') Select category
+                      option(value=' Faculty Achievements ') Faculty Achievements 
+                      option(value=' Students Achievements ') Students Achievements 
+                      option(value=' Exam timetable') Exam timetable
+                      option(value=' Events')  Events
+                      option(value=' competitions')  competitions
+                      option(value=' Hackthons')  Hackthons
+
+                    
+                   
+                    
+                  
                     
                 .pull-right
                   input.btn.btn-primary(type='submit')
@@ -208,40 +213,30 @@ head
       
          .card
             .card-block
-              h4.card-title articles
+              h3 Notice Tables
               .table-responsive
                 table.table
                   thead
-                    tr
+                    tr.w3-light-grey
                       th.hide Id
-                      th Title
-                      th description
-                      th Author
-                      th rollno
-                      
-                      th conclusion
+                      th date
                       th image
-                      th Delete
-                      
-                      
-                      
-                      
+                      th category
+                      th delete
                   tbody
-                    if technews
-                      each member in technews
-                        tr
-                          td.hide #{member._id}
-                          td #{member.title}
-                          td #{member.description}
-                          td #{member.author}
-                          td #{member.rollno}
-                          
-                          td #{member.conclusion}
-                          
-                          td <img src="#{member.image}" alt="Trulli" width="50" height="50"> 
-                          
-                          td
-                            button.btn.btn-danger.del(value=member._id) Remove
+                   if noticeboard
+                    each member in noticeboard
+                      tr
+                        td.hide #{member._id}
+                        td #{member.date}
+                        td #{member.category}
+                        
+                        
+                  
+                        
+                        td <a href="#{member.image}">view</a>
+                        td
+                          button.btn.btn-danger.del(value=member._id) Remove  
       // ==============================================================
       // End PAge Content
       // ==============================================================
@@ -296,10 +291,11 @@ script.
     $(this).tab('show');
     });
     });
+    
     $('.del').click(function() {
     var id = $(this).val();
     alert(id);
-    $.post('/remove_technews', {
+    $.post('/remove_notice', {
     sno: id
     }, function(data, xhr) {
     location.reload();

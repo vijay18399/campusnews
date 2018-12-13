@@ -13,6 +13,9 @@ var tech=db.get('techbit');
 var articles=db.get('articles');
 var trainers=db.get('trainers');
 var slider=db.get('slider');
+var notice=db.get('notice');
+var circular=db.get('circular');
+
 
 var multer  = require('multer');
 
@@ -567,13 +570,15 @@ router.post('/remove_article', function(req, res) {
     });
 });
 //End of articles
+//----------------------------------------trainers---------------------------------//
+//trainer datatables
 router.get('/trainers', function(req, res) {
     trainers.find({},function(err,docs){
         res.locals.trainers = docs;
   res.render('trainer_form');
 });
 });
-//Adding new article details
+//Adding new trainer details
 router.post('/add_trainer', upload.single('image'), function(req, res) {
     console.log(req.body.name);
     //console.log(req.body.date);
@@ -605,7 +610,7 @@ router.post('/edit_trainer', function(req, res) {
     });
 });
 
-//removing articles
+//removing trainer
 router.post('/remove_trainer', function(req, res) {
     //console.log(req.body.sno);
     var id = req.body.sno;
@@ -614,6 +619,88 @@ router.post('/remove_trainer', function(req, res) {
       res.send(docs);
     });
 });
+
+//----------------------------------notice board------------------------------------------------------//
+//notice datatables
+router.get('/notice', function(req, res) {
+    notice.find({},function(err,docs){
+        res.locals.noticeboard = docs;
+  res.render('noticeboard_form');
+});
+});
+//add notice
+router.post('/add_notice', upload.single('image'), function(req, res) {
+    console.log(req.body.name);
+    //console.log(req.body.date);
+    //console.log(req.body.password);
+    var data = {
+        date : req.body.date,
+        category : req.body.category,
+        
+        
+        
+        
+        image : 'uploads/' + req.file.originalname
+    }
+    notice.insert(data, function(err,data){
+    console.log(data);
+    res.redirect('/notice');
+    });
+});
+
+//find and edit
+
+//removing noticeboard
+router.post('/remove_notice', function(req, res) {
+    //console.log(req.body.sno);
+    var id = req.body.sno;
+    notice.remove({"_id":id}, function(err,docs){
+        //console.log(docs);
+      res.send(docs);
+    });
+});
+
+//---------------------------END-------------------------------------//
+//----------------------------------circular-----------------------------------------------------//
+//circular datatables
+router.get('/circular', function(req, res) {
+    circular.find({},function(err,docs){
+        res.locals.circular = docs;
+  res.render('circular_form');
+});
+});
+//add notice
+router.post('/add_circular', upload.single('image'), function(req, res) {
+    console.log(req.body.name);
+    //console.log(req.body.date);
+    //console.log(req.body.password);
+    var data = {
+        date : req.body.date,
+        
+        
+        
+        
+        
+        image : 'uploads/' + req.file.originalname
+    }
+    circular.insert(data, function(err,data){
+    console.log(data);
+    res.redirect('/circular');
+    });
+});
+
+//find and edit
+
+//removing noticeboard
+router.post('/remove_circular', function(req, res) {
+    //console.log(req.body.sno);
+    var id = req.body.sno;
+    circular.remove({"_id":id}, function(err,docs){
+        //console.log(docs);
+      res.send(docs);
+    });
+});
+
 
 
 //=================================slider starts======================>
